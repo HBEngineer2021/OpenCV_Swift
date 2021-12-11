@@ -42,27 +42,24 @@
                                                     <constraint firstAttribute="width" constant="200" id="lQU-DQ-tfH"/>
                                                 </constraints>
                                             </imageView>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="07F-8o-ehQ">
-                                                <rect key="frame" x="141.5" y="42" width="131" height="31"/>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9l-Eq-Bvf">
+                                                <rect key="frame" x="0.0" y="628" width="414" height="162"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="gKt-ak-R4Q"/>
-                                                    <constraint firstAttribute="width" constant="131" id="he4-w6-VDt"/>
+                                                    <constraint firstAttribute="width" constant="414" id="2Fc-hM-3EX"/>
+                                                    <constraint firstAttribute="height" constant="162" id="whB-Cb-HBp"/>
                                                 </constraints>
-                                                <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
-                                                </segments>
-                                            </segmentedControl>
+                                            </pickerView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="a9l-Eq-Bvf" secondAttribute="bottom" constant="106" id="3SS-bQ-FXf"/>
                                             <constraint firstItem="DV0-vn-elw" firstAttribute="centerX" secondItem="kBr-TF-eZi" secondAttribute="centerX" id="4H4-yT-KPM"/>
-                                            <constraint firstItem="b1Y-1h-JnX" firstAttribute="top" secondItem="07F-8o-ehQ" secondAttribute="bottom" constant="20" id="ALi-qh-8rd"/>
                                             <constraint firstItem="DV0-vn-elw" firstAttribute="top" secondItem="b1Y-1h-JnX" secondAttribute="bottom" constant="55" id="KcS-51-2mu"/>
-                                            <constraint firstItem="07F-8o-ehQ" firstAttribute="centerX" secondItem="kBr-TF-eZi" secondAttribute="centerX" id="nAr-wO-BGY"/>
-                                            <constraint firstItem="07F-8o-ehQ" firstAttribute="top" secondItem="kBr-TF-eZi" secondAttribute="top" constant="43" id="rrK-a5-mjd"/>
+                                            <constraint firstItem="a9l-Eq-Bvf" firstAttribute="top" secondItem="DV0-vn-elw" secondAttribute="bottom" constant="80" id="O5I-q4-dSn"/>
+                                            <constraint firstItem="b1Y-1h-JnX" firstAttribute="top" secondItem="kBr-TF-eZi" secondAttribute="top" constant="93" id="nku-rV-GrK"/>
                                             <constraint firstItem="b1Y-1h-JnX" firstAttribute="centerX" secondItem="kBr-TF-eZi" secondAttribute="centerX" id="urY-Xf-tXc"/>
                                             <constraint firstAttribute="height" constant="896" id="xoC-N1-Oej"/>
+                                            <constraint firstItem="a9l-Eq-Bvf" firstAttribute="centerX" secondItem="kBr-TF-eZi" secondAttribute="centerX" id="zZe-qy-zJ7"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -88,6 +85,7 @@
                     </view>
                     <connections>
                         <outlet property="grayScaleImage" destination="DV0-vn-elw" id="y9U-g2-uKJ"/>
+                        <outlet property="pickerView" destination="a9l-Eq-Bvf" id="zNT-Jf-wPf"/>
                         <outlet property="profileImageButton" destination="b1Y-1h-JnX" id="chN-i3-3Xj"/>
                     </connections>
                 </viewController>
