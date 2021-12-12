@@ -20,6 +20,8 @@
 		D7BA9CCE26F8B021005DA5CE /* OpenCV_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BA9CCD26F8B021005DA5CE /* OpenCV_SwiftUITests.swift */; };
 		D7BA9CDE26F8B0F6005DA5CE /* OpenCVSample.mm in Sources */ = {isa = PBXBuildFile; fileRef = D7BA9CDD26F8B0F6005DA5CE /* OpenCVSample.mm */; };
 		D7E61F06273026B40016B6FC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7E61F042730263C0016B6FC /* opencv2.framework */; };
+		D7EDE9802765A14700686872 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EDE97F2765A14700686872 /* CustomButton.swift */; };
+		D7EDE9822765A15B00686872 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EDE9812765A15B00686872 /* CustomImageView.swift */; };
 		FEB1E65D3FAC0B77C0C903A8 /* Pods_OpenCV_Swift_OpenCV_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 641DD882CC5B14D9BEB8B5D7 /* Pods_OpenCV_Swift_OpenCV_SwiftUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,8 @@
 		D7BA9CDC26F8B0F6005DA5CE /* OpenCVSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVSample.h; sourceTree = "<group>"; };
 		D7BA9CDD26F8B0F6005DA5CE /* OpenCVSample.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVSample.mm; sourceTree = "<group>"; };
 		D7E61F042730263C0016B6FC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Pods/OpenCV/opencv2.framework; sourceTree = "<group>"; };
+		D7EDE97F2765A14700686872 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D7EDE9812765A15B00686872 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		DBF70B57D6825CD8D92F5C19 /* Pods_OpenCV_SwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenCV_SwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0FEFBA31CC7960272B5879 /* Pods-OpenCV_SwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCV_SwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-OpenCV_SwiftTests/Pods-OpenCV_SwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8A6DCE8B9D970E035C27659 /* Pods-OpenCV_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCV_Swift.release.xcconfig"; path = "Target Support Files/Pods-OpenCV_Swift/Pods-OpenCV_Swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				D7BA9CDD26F8B0F6005DA5CE /* OpenCVSample.mm */,
 				D7BA9CDB26F8B0F5005DA5CE /* OpenCV_Swift-Bridging-Header.h */,
 				D768B22B2760E258000020FC /* Alert.swift */,
+				D7EDE97F2765A14700686872 /* CustomButton.swift */,
+				D7EDE9812765A15B00686872 /* CustomImageView.swift */,
 			);
 			path = OpenCV_Swift;
 			sourceTree = "<group>";
@@ -388,8 +394,10 @@
 				D7BA9CB026F8B01A005DA5CE /* ViewController.swift in Sources */,
 				D7BA9CAC26F8B01A005DA5CE /* AppDelegate.swift in Sources */,
 				D7BA9CDE26F8B0F6005DA5CE /* OpenCVSample.mm in Sources */,
+				D7EDE9822765A15B00686872 /* CustomImageView.swift in Sources */,
 				D768B22C2760E258000020FC /* Alert.swift in Sources */,
 				D7BA9CAE26F8B01A005DA5CE /* SceneDelegate.swift in Sources */,
+				D7EDE9802765A14700686872 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

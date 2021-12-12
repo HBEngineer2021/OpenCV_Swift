@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AlertViewController {
     
     @IBOutlet var profileImageButton: UIButton!
     
@@ -20,18 +20,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileImageButton.layer.cornerRadius = 100
-        profileImageButton.layer.borderWidth = 1
-        let border = UIColor.black.cgColor
-        profileImageButton.layer.borderColor = border
-        profileImageButton.addTarget(self, action: #selector (tappedProfileImageButton), for: .touchUpInside)
-        grayScaleImage.layer.cornerRadius = 100
-        grayScaleImage.layer.borderWidth = 1
-        grayScaleImage.layer.borderColor = border
-        grayScaleImage.isUserInteractionEnabled = true
-        let tapped = UITapGestureRecognizer(target: self, action: #selector(self.tappedGetImage(_:)))
-        tapped.delegate = self
-        grayScaleImage.addGestureRecognizer(tapped)
+        CustomButton.shared.setButtonA(button: profileImageButton, selector: #selector (tappedProfileImageButton), vc: self)
+        CustomImageView.shared.setImageViewA(imageView: grayScaleImage, selector: #selector(self.tappedGetImage(_:)), vc: self)
         pickerView.delegate = self
         pickerView.dataSource = self
     }
@@ -48,19 +38,12 @@ class ViewController: UIViewController {
     @objc private func tappedGetImage(_ sender: UITapGestureRecognizer) {
         let getImageView = sender.view! as! UIImageView
         guard let getImage = getImageView.image as UIImage? else { return }
-        let alert = UIAlertController(title: "変換画像を保存", message: "この画像を保存しますか？", preferredStyle: .alert)
-        let isSaveAction = UIAlertAction(title: "保存", style: .default, handler: {
+        _ = saveToImage(handler: {
             (UIAlertAction) -> Void in
             UIImageWriteToSavedPhotosAlbum(getImage, self, #selector(self.showResultOfSaveImage(_:didFinishSavingWithError:contextInfo:)), nil)
         })
-        
-        let isCancelAction = UIAlertAction(title: "閉じる", style: .cancel, handler: nil)
-        
-        alert.addAction(isCancelAction)
-        alert.addAction(isSaveAction)
-        
-        self.present(alert, animated: true, completion: nil)
     }
+    
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -98,14 +81,7 @@ extension ViewController: UIGestureRecognizerDelegate {
                 title = "エラー"
                 message = "保存に失敗しました"
             }
-        
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
-            // OKボタンを追加
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-
-            // UIAlertController を表示
-            self.present(alert, animated: true, completion: nil)
+            _ = success(title: title, message: message)
         }
 }
 
