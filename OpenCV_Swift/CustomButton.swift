@@ -11,6 +11,11 @@ import UIKit
 class CustomButton {
     static var shared = CustomButton()
     
+    /// UIButtonを設定
+    /// - Parameters:
+    ///   - button: 設定したいUIButtonクラスを指定する
+    ///   - selector: Selectorクラスを指定する
+    ///   - vc: ViewControllerクラスを指定する
     func setButtonA(button: UIButton, selector: Selector, vc: Any) {
         button.layer.cornerRadius = 100
         button.layer.borderWidth = 1
