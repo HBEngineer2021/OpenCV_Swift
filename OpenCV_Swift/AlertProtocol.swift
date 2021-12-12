@@ -1,5 +1,5 @@
 //
-//  Alert.swift
+//  AlertProtocol.swift
 //  OpenCV_Swift
 //
 //  Created by Motoki Onayama on 2021/12/08.
