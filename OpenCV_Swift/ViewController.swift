@@ -15,7 +15,7 @@ class ViewController: UIViewController, AlertViewController {
     
     @IBOutlet weak var pickerView: UIPickerView!
     
-    let imageArray = ["GrayScale", "Canny", "Sobel", "Laplacian", "Gaussian", "Add"]
+    let imageArray = ["GrayScale", "Canny", "Sobel", "Laplacian", "Gaussian", "Add", "Erode", "Absdiff"]
     var rowNum: Int = 0
     
     override func viewDidLoad() {
@@ -49,9 +49,10 @@ class ViewController: UIViewController, AlertViewController {
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editingImage = info[.editedImage] as? UIImage {
-            profileImageButton.setImage(editingImage.withRenderingMode(.alwaysOriginal), for: .normal) } else if let originalImage = info[.originalImage] as? UIImage {
-                profileImageButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
-            }
+            profileImageButton.setImage(editingImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            profileImageButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        }
         
         profileImageButton.setTitle("", for: .normal)
         profileImageButton.imageView?.contentMode = .scaleAspectFill
@@ -62,7 +63,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         guard let image = profileImageButton.imageView?.image else { return }
         
         grayScaleImage.image = imageProccess(rowNum: rowNum, image: image)
-            
+        
         grayScaleImage.contentMode = .scaleAspectFill
         grayScaleImage.clipsToBounds = true
         
@@ -73,16 +74,16 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 extension ViewController: UIGestureRecognizerDelegate {
     // 保存結果をアラートで表示
     @objc func showResultOfSaveImage(_ image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
-
-            var title = "保存完了"
-            var message = "カメラロールに保存しました"
-
-            if error != nil {
-                title = "エラー"
-                message = "保存に失敗しました"
-            }
-            _ = success(title: title, message: message)
+        
+        var title = "保存完了"
+        var message = "カメラロールに保存しました"
+        
+        if error != nil {
+            title = "エラー"
+            message = "保存に失敗しました"
         }
+        _ = success(title: title, message: message)
+    }
 }
 
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -116,6 +117,10 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             return OpenCVSample.gaussianBlur(image)
         case 5:
             return OpenCVSample.add(image)
+        case 6:
+            return OpenCVSample.erode(image)
+        case 7:
+            return OpenCVSample.absdiff(image)
         default:
             break
         }

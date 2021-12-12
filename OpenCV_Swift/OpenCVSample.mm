@@ -100,6 +100,37 @@
     
     return MatToUIImage(dilate);
 }
++(UIImage *)Erode:(UIImage *)image{
+    cv::Mat mat;
+    UIImageToMat(image, mat);
+    
+    cv::Mat gray;
+    cv::cvtColor(mat, gray, cv::COLOR_BGR2GRAY);
+    
+    cv::Laplacian(mat, gray, 10);
+    
+    cv::Mat erode;
+    cv::erode(mat, erode, 6);
+    
+    return MatToUIImage(erode);
+}
++(UIImage *)Absdiff:(UIImage *)image{
+    cv::Mat mat;
+    UIImageToMat(image, mat);
+    cv::Mat gray;
+    cv::cvtColor(mat, gray, cv::COLOR_BGR2GRAY);
+    
+    cv::Mat mat1;
+    UIImageToMat(image, mat1);
+    cv::circle(mat1, cv::Point(300, 300), 100, cv::Scalar(255,0,0), 3, 1);
+    cv::Mat gray1;
+    cv::cvtColor(mat1, gray1, cv::COLOR_BGR2GRAY);
+    
+    cv::Mat absdiff;
+    cv::absdiff(gray, gray1, absdiff);
+    
+    return MatToUIImage(absdiff);
+}
 /*+(UIImage *)CalcHist:(UIImage *)image{
     cv::Mat mat;
     UIImageToMat(image, mat);
