@@ -22,7 +22,7 @@ protocol AlertViewController where Self: UIViewController {
     func failure(title: String, retry: String, handler: ((UIAlertAction) -> Void)?) -> Bool
     
     /// 画像保存確認アラート
-    /// - Parameter handler: 呼ばれるか確認
+    /// - Parameter handler: 保存処理を書き込む
     func saveToImage(handler: ((UIAlertAction) -> Void)?) -> Bool
     
 }
