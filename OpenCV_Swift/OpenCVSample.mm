@@ -17,14 +17,14 @@
     // convert image to mat
     cv::Mat mat;
     UIImageToMat(image, mat);
-
+    
     // convert mat to gray scale
     cv::Mat gray;
     cv::cvtColor(mat, gray, cv::COLOR_BGR2GRAY);
-
+    
     // convert to image
     UIImage * grayImg = MatToUIImage(gray);
-
+    
     return grayImg;
 }
 +(UIImage *)Canny:(UIImage *)image{
@@ -131,19 +131,17 @@
     
     return MatToUIImage(absdiff);
 }
-/*+(UIImage *)CalcHist:(UIImage *)image{
+
++(UIImage *)AddWeighted:(UIImage *)image {
     cv::Mat mat;
     UIImageToMat(image, mat);
     
-    cv::Mat calcHist;
-    cv::MatND hist;
-    int channels[] = {0, 1};
-    int hbins = 30, sbins = 32;
-    int histSize[] = {hbins, sbins};
-    float hranges[] = { 0, 180 };
-    float sranges[] = { 0, 256 };
-    const float* ranges[] = { hranges, sranges };
-    cv::calcHist(mat, 1, channels, hist, 2, histSize, ranges);
-    return MatToUIImage(calcHist);
-}*/
+    cv::Mat mat1;
+    UIImageToMat(image, mat1);
+    cv::circle(mat1, cv::Point(300, 300), 100, cv::Scalar(255,0,0), 3, 1);
+    
+    cv::Mat addWeighted;
+    cv::addWeighted(mat, 0.5, mat1, 0.5, 0.5, addWeighted);
+    return MatToUIImage(addWeighted);
+}
 @end

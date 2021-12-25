@@ -14,8 +14,8 @@ class ViewController: UIViewController, AlertViewController {
     @IBOutlet weak var grayScaleImage: UIImageView!
     
     @IBOutlet weak var pickerView: UIPickerView!
-    
-    let imageArray = ["GrayScale", "Canny", "Sobel", "Laplacian", "Gaussian", "Add", "Erode", "Absdiff"]
+        
+    let imageArray = ["GrayScale", "Canny", "Sobel", "Laplacian", "Gaussian", "Add", "Erode", "Absdiff", "addWeighted"]
     var rowNum: Int = 0
     
     override func viewDidLoad() {
@@ -24,6 +24,9 @@ class ViewController: UIViewController, AlertViewController {
         CustomImageView.shared.setImageViewA(imageView: grayScaleImage, selector: #selector(self.tappedGetImage(_:)), vc: self)
         pickerView.delegate = self
         pickerView.dataSource = self
+        LogManager.shared.createFile()
+        _ = LogManager.shared.printer(object: "生成")
+        LogManager.shared.write()
     }
     
     @objc private func tappedProfileImageButton() {
@@ -121,6 +124,8 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             return OpenCVSample.erode(image)
         case 7:
             return OpenCVSample.absdiff(image)
+        case 8:
+            return OpenCVSample.addWeighted(image)
         default:
             break
         }
