@@ -23,4 +23,9 @@ class CustomButton {
         button.layer.borderColor = border
         button.addTarget(vc, action: selector, for: .touchUpInside)
     }
+    
+    func setSnapshotButton(button: UIButton) {
+        button.layer.cornerRadius = button.frame.size.width/2
+        button.backgroundColor = UIColor.white
+    }
 }

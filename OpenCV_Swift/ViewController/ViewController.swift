@@ -24,9 +24,15 @@ class ViewController: UIViewController, AlertViewController {
         CustomImageView.shared.setImageViewA(imageView: grayScaleImage, selector: #selector(self.tappedGetImage(_:)), vc: self)
         pickerView.delegate = self
         pickerView.dataSource = self
+        navigationController?.navigationBar.isHidden = true
         LogManager.shared.createFile()
         _ = LogManager.shared.printer(object: "生成")
         LogManager.shared.write()
+    }
+    
+    @IBAction func cameraAction(_ sender: Any) {
+        let cameraVC = CameraViewController.init(nibName: "CameraViewController", bundle: nil)
+        navigationController?.pushViewController(cameraVC, animated: true)
     }
     
     @objc private func tappedProfileImageButton() {
