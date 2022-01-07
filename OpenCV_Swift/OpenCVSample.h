@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(UIImage *)Erode:(UIImage *)image;
 +(UIImage *)Absdiff:(UIImage *)image;
 +(UIImage *)AddWeighted:(UIImage *)image;
++(UIImage *)original:(UIImage *)image;
 @end
 
 NS_ASSUME_NONNULL_END

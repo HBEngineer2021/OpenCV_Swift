@@ -64,9 +64,13 @@
     cv::Mat gray;
     cv::cvtColor(mat, gray, cv::COLOR_BGR2GRAY);
     
-    cv::Laplacian(mat, gray, 10);
+    cv::Mat laplacian;
+    cv::Laplacian(gray, laplacian, 10);
     
-    return MatToUIImage(gray);
+    cv::Mat img;
+    cv::convertScaleAbs(laplacian, img);
+    
+    return MatToUIImage(img);
 }
 +(UIImage *)GaussianBlur:(UIImage *)image{
     cv::Mat mat;
@@ -143,5 +147,11 @@
     cv::Mat addWeighted;
     cv::addWeighted(mat, 0.5, mat1, 0.5, 0.5, addWeighted);
     return MatToUIImage(addWeighted);
+}
+
++(UIImage *)original:(UIImage *)image {
+    cv::Mat mat;
+    UIImageToMat(image, mat);
+    return MatToUIImage(mat);
 }
 @end
