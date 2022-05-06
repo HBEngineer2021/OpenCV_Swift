@@ -18,6 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(UIImage *)GaussianBlur:(UIImage *)image;
 +(UIImage *)Add:(UIImage *)image;
 +(UIImage *)Dilate:(UIImage *)image;
++(UIImage *)Erode:(UIImage *)image;
++(UIImage *)Absdiff:(UIImage *)image;
++(UIImage *)AddWeighted:(UIImage *)image;
++(UIImage *)original:(UIImage *)image;
 @end
 
 NS_ASSUME_NONNULL_END
